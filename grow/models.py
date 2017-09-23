@@ -22,4 +22,3 @@ class Author(models.Model):
     about = models.TextField()
     email = models.EmailField()
     phone_number = models.CharField(max_length=12)
-    pass

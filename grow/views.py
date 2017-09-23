@@ -13,6 +13,8 @@ def index(request):
     content = {
         'articles': articles
     }
+    for a in articles:
+        print(a)
     return render(request, 'articles.html', content)
 
 
