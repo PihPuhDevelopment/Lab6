@@ -8,7 +8,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey("Author")
     content = models.TextField()
-    snippet = models.CharField(max_length=500)
+    snippet = models.TextField()
     pubdate = models.DateTimeField()
     likes = models.PositiveIntegerField()
 
