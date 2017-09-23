@@ -6,13 +6,14 @@ class Connection:
         self.host = host
         self.db_name = db_name
         self.read_default_file = read_default_file
+        self._connection = None
 
     @property
-    def _connection(self):
+    def connection(self):
         return self._connection
 
     def __enter__(self):
-        self.connect()
+        return self.connect()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.disconnect()
@@ -24,6 +25,7 @@ class Connection:
                 db=self.db_name,
                 read_default_file=self.read_default_file
             )
+            return self.connection
 
     def disconnect(self):
         if self._connection:
